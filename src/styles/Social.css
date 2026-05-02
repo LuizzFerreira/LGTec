@@ -1,0 +1,120 @@
+.social-container {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 15px;
+  z-index: 9999;
+}
+
+.social-options {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  visibility: hidden;
+  transform: scale(0.8);
+  transition: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+.social-container.active .social-options {
+  opacity: 1;
+  visibility: visible;
+  transform: scale(1);
+}
+
+.social-container.active .social-item:nth-child(1) {
+  transform: translate(-70px, -10px);
+}
+
+.social-container.active .social-item:nth-child(2) {
+  transform: translate(-50px, -65px);
+}
+
+.social-container.active .social-item:nth-child(3) {
+  transform: translate(5px, -75px);
+}
+
+.social-item {
+  position: absolute;
+  top: 5px;
+  left: 5px;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-size: 22px;
+  text-decoration: none;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+  transition: transform 0.3s, filter 0.3s;
+}
+
+.social-item:hover {
+  transform: scale(1.15);
+  filter: brightness(1.2);
+}
+
+.whatsapp {
+  background: #25d366;
+}
+
+.instagram {
+  background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285AEB 90%);
+}
+
+.phone {
+  background: #34b7f1;
+}
+
+.social-main-btn {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background: #07012a;
+  border: none;
+  color: black;
+  font-size: 24px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 20px rgba(255, 165, 0, 0.4);
+  transition: all 0.3s ease;
+  position: relative;
+  z-index: 2;
+}
+.social-main-btn > img {
+    width: 30px;
+    height: 30px;
+    filter: invert(1);
+}
+.social-container.active .social-main-btn {
+  transform: rotate(45deg);
+  background: #333;
+  color: #07012a;
+}
+
+/* Efeito de pulso no botão principal quando inativo */
+@keyframes pulse {
+  0% { box-shadow: 0 4px 20px rgba(7, 1, 42, 0.4); }
+  70% { box-shadow: 0 0 0 15px rgba(255, 165, 0, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(255, 165, 0, 0); }
+}
+
+.social-container:not(.active) .social-main-btn {
+  animation: pulse 2s infinite;
+}
+.InstaLogo {
+    width: 30px;
+}
+.WpLogo {
+    width: 50px;
+    border-radius: 50%;
+}
+.TlLogo {
+    width: 25px;
+}

@@ -1,0 +1,9 @@
+{
+  "rewrites": [
+    { "source": "/", "destination": "/" },
+    { "source": "/menu", "destination": "/" },
+    { "source": "/Gallery", "destination": "/" },
+    { "source": "/location", "destination": "/" },
+    { "source": "/(.*)", "destination": "/" }
+  ]
+}

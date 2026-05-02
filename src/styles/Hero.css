@@ -1,0 +1,146 @@
+.hero {
+  position: relative;
+  height: 90vh;
+  display: flex;
+  align-items: center;
+  padding: 0 60px;
+  overflow: hidden;
+}
+
+.hero .overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to right,
+    rgba(0, 0, 0, 0.85),
+    rgba(0, 0, 0, 0.3)
+  );
+}
+
+.hero-content {
+  position: relative;
+  max-width: 1200px;
+  color: white;
+  z-index: 2;
+  text-align: left;
+  animation: slideInLeft 1s ease-out forwards;
+}
+.hero-content > p {
+  font-size: 20px;
+}
+
+@keyframes slideInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-100px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+.hero-content > h1 {
+  color: #ffffff;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: -1px;
+}
+.tag {
+  color: #ffffff;
+  font-size: 16px;
+  font-weight: 600;
+  margin-bottom: 10px;
+  display: block;
+}
+
+.hero h1 {
+  font-size: 60px;
+}
+
+.hero h1 span {
+  color: #07012a;
+  text-shadow: 0 4px 15px rgba(255, 255, 255, 0.3);
+}
+
+.hero p {
+  font-size: 20px;
+  opacity: 0.8;
+  margin-bottom: 20px;
+  text-align: left;
+}
+
+.buttons {
+  display: flex;
+  gap: 15px;
+}
+
+button {
+  padding: 12px 20px;
+  border-radius: 6px;
+  border: none;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.primary {
+  background: #07012a;
+  color: black;
+}
+
+.secondary {
+  background: transparent;
+  border: 1px solid #07012a;
+  color: #07012a;
+}
+.hero {
+  position: relative;
+  height: 60vh;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  padding: 0 60px;
+}
+
+/* container das imagens */
+.slider {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  transition: transform 1s ease-in-out;
+}
+
+/* cada slide */
+.slide {
+  min-width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-position: center;
+}
+
+/* overlay por cima das imagens */
+.overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to right,
+    rgba(0, 0, 0, 0.85),
+    rgba(0, 0, 0, 0.3)
+  );
+  z-index: 1;
+}
+
+@media (max-width: 768px) {
+  .hero {
+    padding: 0 20px;
+    height: 70vh;
+    justify-content: center;
+  }
+
+  .hero h1 {
+    font-size: 40px;
+  }
+  .hero-content > h1 {
+    line-height: 2.7rem;
+  }
+}
