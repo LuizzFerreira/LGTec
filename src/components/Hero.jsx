@@ -1,60 +1,166 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { Link } from "react-router-dom";
 import "../styles/Hero.css";
-import img1 from "../assets/img/image-7.jpeg";
-import img2 from "../assets/img/image-17.jpeg";
-import img3 from "../assets/img/image-8.jpeg";
-import img4 from "../assets/img/image-14.jpeg";;
+import sideImg1 from "../assets/img/sites.png";
+import sideImg2 from "../assets/img/image-21.jpg";
+import sideImg3 from "../assets/img/image-22.png";
 
-const images = [img1, img2, img3, img4];
+const hero2Content = [
+  {
+    tag: "Desenvolvimento Web",
+    title: "Sites de Alta <span>Performance</span>",
+    text: "Plataformas rápidas e otimizadas para converter visitantes em clientes.",
+    image: sideImg1,
+    link: "/servicos",
+  },
+  {
+    tag: "Mobile Apps",
+    title: "Sua Ideia no <span>Bolso</span> do Cliente",
+    text: "Criação de aplicativos nativos com foco em experiência do usuário.",
+    image: sideImg2,
+    link: "/servicos",
+  },
+  {
+    tag: "Social Design",
+    title: "Design que <span>Vende</span>",
+    text: "Sua marca com visual profissional e consistente nas redes sociais.",
+    image: sideImg3,
+    link: "/portfolio",
+  },
+];
 
-export default function Hero() {
-  const [index, setIndex] = useState(0);
+function ParticleCanvas() {
+  const canvasRef = useRef(null);
 
   useEffect(() => {
-    const interval = setInterval(() => {
-      setIndex((prev) => (prev + 1) % images.length);
-    }, 6000);
+    const canvas = canvasRef.current;
+    const ctx = canvas.getContext("2d");
+    let animId;
 
+    const resize = () => {
+      canvas.width = canvas.offsetWidth;
+      canvas.height = canvas.offsetHeight;
+    };
+    resize();
+    window.addEventListener("resize", resize);
+
+    const COUNT = 80;
+    const particles = Array.from({ length: COUNT }, () => ({
+      x: Math.random() * canvas.width,
+      y: Math.random() * canvas.height,
+      r: Math.random() * 1.5 + 0.5,
+      vx: (Math.random() - 0.5) * 0.4,
+      vy: (Math.random() - 0.5) * 0.4,
+    }));
+
+    const draw = () => {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+      particles.forEach((p) => {
+        p.x += p.vx;
+        p.y += p.vy;
+        if (p.x < 0) p.x = canvas.width;
+        if (p.x > canvas.width) p.x = 0;
+        if (p.y < 0) p.y = canvas.height;
+        if (p.y > canvas.height) p.y = 0;
+
+        ctx.beginPath();
+        ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
+        ctx.fillStyle = "rgba(124, 58, 237, 0.5)";
+        ctx.fill();
+      });
+
+      for (let i = 0; i < particles.length; i++) {
+        for (let j = i + 1; j < particles.length; j++) {
+          const dx = particles[i].x - particles[j].x;
+          const dy = particles[i].y - particles[j].y;
+          const dist = Math.sqrt(dx * dx + dy * dy);
+          if (dist < 120) {
+            ctx.beginPath();
+            ctx.moveTo(particles[i].x, particles[i].y);
+            ctx.lineTo(particles[j].x, particles[j].y);
+            ctx.strokeStyle = `rgba(124, 58, 237, ${0.15 * (1 - dist / 120)})`;
+            ctx.lineWidth = 0.6;
+            ctx.stroke();
+          }
+        }
+      }
+
+      animId = requestAnimationFrame(draw);
+    };
+
+    draw();
+    return () => {
+      cancelAnimationFrame(animId);
+      window.removeEventListener("resize", resize);
+    };
+  }, []);
+
+  return <canvas ref={canvasRef} className="hero-canvas" />;
+}
+
+export default function Hero() {
+  const [textIndex, setTextIndex] = useState(0);
+  const [version, setVersion] = useState(null);
+
+  useEffect(() => {
+    setVersion(Math.floor(Math.random() * 2));
+    const interval = setInterval(() => {
+      setTextIndex((prev) => (prev + 1) % hero2Content.length);
+    }, 8000);
     return () => clearInterval(interval);
   }, []);
 
+  if (version === null) return null;
+
   return (
-    <section className="hero">
-      <div
-        className="slider"
-        style={{
-          transform: `translateX(-${index * 100}%)`,
-        }}
-      >
-        {images.map((img, i) => (
-          <div
-            className="slide"
-            key={i}
-            style={{ backgroundImage: `url(${img})` }}
-          />
-        ))}
-      </div>
+    <section className={`hero ${version === 1 ? "hero-v2" : "hero-v1"}`}>
+      {version === 0 ? (
+        <ParticleCanvas />
+      ) : (
+        <div className="static-bg-dark" />
+      )}
 
       <div className="overlay" />
 
-      <div className="hero-content">
-        <span className="tag">São Paulo</span>
-
-        <h1>
-          Bem Vindo A <span>Clinica Dr. Bruno</span>
-        </h1>
-
-        <p>Transformando Vidas Através de Sorrisos</p>
-
-        <div className="buttons">
-          <a href="https://wa.me/5511973262573" target="_blank" rel="noreferrer">
-            <button className="primary">Entre em contato</button>
-          </a>
-          <Link to="/menu">
-            <button className="secondary">Clínica</button>
-          </Link>
-        </div>
+      <div className="hero-content-container">
+        {version === 0 ? (
+          <div className="hero-content v1 animate-fade">
+            <span className="tag">LGTec Soluções Técnicas</span>
+            <h1>Impulsione seu Negócio com a <span>LGTec</span></h1>
+            <p>Sites, apps e design estratégico para resultados reais.</p>
+            <div className="buttons">
+              <a href="https://wa.me/5511973262573" target="_blank" rel="noreferrer">
+                <button className="primary">Orçamento Grátis</button>
+              </a>
+            </div>
+          </div>
+        ) : (
+          <div className="hero2-split">
+            <div className="text-side">
+              {hero2Content.map((item, i) => (
+                <div key={i} className={`content-box ${i === textIndex ? "active" : "inactive"}`}>
+                  <span className="tag">{item.tag}</span>
+                  <h1 dangerouslySetInnerHTML={{ __html: item.title }} />
+                  <p>{item.text}</p>
+                  <div className="buttons">
+                    <Link to={item.link}><button className="primary">Ver Mais</button></Link>
+                  </div>
+                </div>
+              ))}
+            </div>
+            <div className="image-side">
+              {hero2Content.map((item, i) => (
+                <img
+                  key={i}
+                  src={item.image}
+                  alt="Serviço LGTec"
+                  className={i === textIndex ? "img-active" : "img-inactive"}
+                />
+              ))}
+            </div>
+          </div>
+        )}
       </div>
     </section>
   );

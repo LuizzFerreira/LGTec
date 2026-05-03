@@ -3,16 +3,38 @@ import "../styles/Footer.css";
 export default function Footer() {
   return (
     <footer className="footer">
-      <div>
-        <div className="footer-left">
-          <h2>Dr. Bruno Alex</h2>
-          <p>© 2024 Clinica Dr. Bruno Alex.Todos os direitos reservados.</p>
+      <div className="footer-inner">
+        <div className="footer-brand">
+          <span className="footer-logo">LG<span>Tec</span></span>
+          <p>Transformando ideias em experiências digitais de alto impacto.</p>
         </div>
-        <div className="footer-center">
-          <a href="#">Privacy Policy</a>
-          <a href="#">Terms of Service</a>
-          <a href="#">Press Kit</a>
+
+        <div className="footer-links">
+          <div className="footer-col">
+            <h4>Serviços</h4>
+            <a href="#">Criação de Sites</a>
+            <a href="#">Aplicativos</a>
+            <a href="#">Redes Sociais</a>
+            <a href="#">E-commerce</a>
+          </div>
+          <div className="footer-col">
+            <h4>Empresa</h4>
+            <a href="#">Sobre</a>
+            <a href="#">Portfólio</a>
+            <a href="#">Contato</a>
+          </div>
+          <div className="footer-col">
+            <h4>Contato</h4>
+            <a href="https://wa.me/5511973262573" target="_blank" rel="noreferrer">WhatsApp</a>
+            <a href="https://instagram.com" target="_blank" rel="noreferrer">Instagram</a>
+            <a href="mailto:contato@lgtec.com.br">E-mail</a>
+          </div>
         </div>
+      </div>
+
+      <div className="footer-bottom">
+        <p>© 2025 LGTec. Todos os direitos reservados.</p>
+        <p>Feito com 💜 em São Paulo</p>
       </div>
     </footer>
   );

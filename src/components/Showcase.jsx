@@ -1,35 +1,94 @@
+import { useRef } from "react";
 import "../styles/Showcase.css";
-import imgImplantes from "../assets/img/image-9.jpeg"; 
-import imgOrtodontia from "../assets/img/image-16.jpeg";
-import imgInvisalign from "../assets/img/image-3.jpg";
-import imgLentes from "../assets/img/image-4.jpg";
-import imgClareamento from "../assets/img/image-14.jpeg";
-import imgProtese from "../assets/img/image-6.jpg";
+import imgSites from "../assets/img/sites.png";
+import imgSocial from "../assets/img/social.png";
+import imgSocial2 from "../assets/img/image-24.png";
+import imgSocial3 from "../assets/img/image-25.png";
 
-export default function Showcase() {
-  const servicos = [
-    { title: "Implantes Dentários", img: imgImplantes, desc: "Implantes dentários são raízes artificiais com formato cilíndrico e/ou cônico, em sua maioria feitos de titânio." },
-    { title: "Ortodontia", img: imgOrtodontia, desc: "Os tratamentos ortodônticos são popularmente conhecidos por sua capacidade de reposicionar e alinhar dentes." },
-    { title: "Invisalign", img: imgInvisalign, desc: "Por que escolher o tratamento Invisalign? Alinha os dentes de maneira mais previsível e confortável." },
-    { title: "Lentes de Contato Dentais", img: imgLentes, desc: "Facetas laminadas ou lentes de contato são revestimentos cerâmicos finos, colocados sobre a parte frontal dos dentes." },
-    { title: "Clareamento Dental", img: imgClareamento, desc: "Existem algumas formas e técnicas de clareamento dentais, alguns fatores precisam ser avaliados individualmente." },
-    { title: "Prótese Dentária", img: imgProtese, desc: "É uma alternativa simples e eficiente para se recuperar a liberdade e a tranquilidade para voltar a sorrir." },
-  ];
+const servicos = [
+  {
+    id: "web",
+    tag: "Criação de Sites",
+    title: "Websites que convertem visitantes em clientes",
+    desc: "Design moderno, performance máxima e SEO otimizado para o seu negócio crescer online.",
+    img: imgSites,
+  },
+  {
+    id: "design",
+    tag: "Design & Conteúdo",
+    title: "Design criativo e produção visual",
+    desc: "Criação de artes no Photoshop, edição de vídeos e desenvolvimento de conteúdos visuais que destacam sua marca e aumentam o engajamento nas redes sociais.",
+    img: imgSocial3,
+  },
+  {
+    id: "social",
+    tag: "Redes Sociais",
+    title: "Presença digital que gera resultado",
+    desc: "Gestão estratégica de Instagram, TikTok e LinkedIn com conteúdo que engaja.",
+    img: imgSocial,
+  },
+  {
+    id: "ecom",
+    tag: "Sistemas & E-commerce",
+    title: "Sua loja ou sistema rodando 24h",
+    desc: "Plataformas de venda e sistemas de gestão personalizados para o seu negócio.",
+    img: imgSocial2,
+  },
+];
+
+function TiltCard({ item }) {
+  const cardRef = useRef(null);
+
+  const handleMouseMove = (e) => {
+    const card = cardRef.current;
+    const rect = card.getBoundingClientRect();
+    const rotateX = (((e.clientY - rect.top) / rect.height) - 0.5) * -12;
+    const rotateY = (((e.clientX - rect.left) / rect.width) - 0.5) * 12;
+    card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale(1.02)`;
+  };
+
+  const handleMouseLeave = () => {
+    cardRef.current.style.transform = "perspective(1000px) rotateX(0) rotateY(0) scale(1)";
+  };
 
   return (
-    <section className="showcase">
-      <h1 className="showcase-title">Clínica Odontológica - São Paulo</h1>
-      
+    <div
+      ref={cardRef}
+      className={`service-card card-${item.id}`}
+      onMouseMove={handleMouseMove}
+      onMouseLeave={handleMouseLeave}
+    >
+      <div className="card-glow" />
+      <div className="card-top">
+        <span className="card-tag">{item.tag}</span>
+        <h3 className="card-title">{item.title}</h3>
+        <p className="card-desc">{item.desc}</p>
+      </div>
+      {item.img && (
+        <div className="card-img-wrap">
+          <img src={item.img} alt={item.tag} />
+        </div>
+      )}
+    </div>
+  );
+}
+
+export default function Showcase() {
+  return (
+    <section className="showcase" id="servicos">
+      <div className="showcase-header">
+        <span className="section-label">O QUE FAZEMOS</span>
+        <h2 className="showcase-title">
+          Soluções digitais que <span>transformam negócios</span>
+        </h2>
+        <p className="showcase-sub">
+          Da ideia ao produto final — criamos experiências digitais que geram resultado.
+        </p>
+      </div>
+
       <div className="showcase-grid">
-        {servicos.map((item, index) => (
-          <div key={index} className="service-card">
-            <h3>{item.title}</h3>
-            <div className="img-container">
-              <img src={item.img} alt={item.title} />
-            </div>
-            <p>{item.desc}</p>
-            <button className="btn-saiba-mais">saiba mais</button>
-          </div>
+        {servicos.map((item) => (
+          <TiltCard key={item.id} item={item} />
         ))}
       </div>
     </section>

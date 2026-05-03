@@ -9,8 +9,8 @@ export default function Home() {
     <>
       <Hero />
       <Showcase />
-      <Team />
       <ShowcaseSecond />
+      <Team />
       <Visit />
     </>
   );
