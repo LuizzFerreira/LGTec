@@ -34,7 +34,7 @@ export default function Footer() {
 
       <div className="footer-bottom">
         <p>© 2025 LGTec. Todos os direitos reservados.</p>
-        <p>Feito com 💜 em São Paulo</p>
+        <p>Rio de Janeiro</p>
       </div>
     </footer>
   );

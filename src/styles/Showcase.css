@@ -9,7 +9,7 @@
   content: '';
   position: absolute;
   inset: 0;
-  background-image: radial-gradient(circle, rgba(124, 58, 237, 0.1) 1px, transparent 1px);
+  background-image: radial-gradient(circle, rgba(124, 58, 237, 0.2) 1px, transparent 1px);
   background-size: 32px 32px;
   pointer-events: none;
   mask-image: radial-gradient(ellipse 80% 80% at 50% 50%, black 40%, transparent 100%);
@@ -197,6 +197,6 @@
 }
 
 @media (max-width: 600px) {
-  .showcase { padding: 80px 20px; }
+  .showcase { padding: 50px 20px; }
   .showcase-grid { grid-template-columns: 1fr; }
 }

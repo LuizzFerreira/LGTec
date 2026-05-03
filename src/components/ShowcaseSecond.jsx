@@ -44,7 +44,7 @@ export default function ShowcaseSecond() {
   }, []);
 
   return (
-    <section className="showcase2" ref={sectionRef}>
+    <section className="showcase2" id="portfolio" ref={sectionRef}>
       <div className="showcase2-inner">
         <div className="stats-row">
           {stats.map((s, i) => (

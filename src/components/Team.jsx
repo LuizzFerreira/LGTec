@@ -8,7 +8,7 @@ const stack = [
 
 export default function Team() {
   return (
-    <section className="sobre-section">
+    <section className="sobre-section" id="sobre">
       <div className="sobre-inner">
         <div className="sobre-content">
           <span className="section-label">SOBRE A LGTEC</span>

@@ -1,12 +1,33 @@
 import { useState, useEffect } from "react";
-import { Link, useLocation } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import "../styles/Navbar.css";
 import img23 from "../assets/img/image-23.png";
 
+const navItems = [
+  { label: "Home", id: null },
+  { label: "Serviços", id: "servicos" },
+  { label: "Sobre", id: "sobre" },
+  { label: "Portfólio", id: "portfolio" },
+];
+
+const NAVBAR_HEIGHT = 80;
+
+function smoothScrollTo(id) {
+  if (!id) {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+    return;
+  }
+  const el = document.getElementById(id);
+  if (!el) return;
+  const top = el.getBoundingClientRect().top + window.scrollY - NAVBAR_HEIGHT;
+  window.scrollTo({ top, behavior: "smooth" });
+}
+
 export default function Navbar() {
-  const location = useLocation();
   const [open, setOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const location = useLocation();
+  const navigate = useNavigate();
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 50);
@@ -14,26 +35,41 @@ export default function Navbar() {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
+  const handleNav = (id) => {
+    setOpen(false);
+    if (location.pathname !== "/") {
+      navigate("/");
+      setTimeout(() => smoothScrollTo(id), 300);
+    } else {
+      smoothScrollTo(id);
+    }
+  };
+
   return (
     <nav className={`navbar ${scrolled ? "scrolled" : ""}`}>
-      <Link className="logo-nav" to="/" onClick={() => setOpen(false)}>
-        <img src={img23} alt="Clinica Logo" />
-      </Link>
+      <button className="logo-nav" onClick={() => handleNav(null)}>
+        <img src={img23} alt="LGTec Logo" />
+      </button>
 
       <div className={`links ${open ? "active" : ""}`}>
-        <Link to="/" onClick={() => setOpen(false)}>Home</Link>
-        <Link to="/Gallery" onClick={() => setOpen(false)}>Serviços</Link>
-        <Link to="/Menu" onClick={() => setOpen(false)}>Sobre</Link>
-        <Link to="/location" onClick={() => setOpen(false)}>Portfólio</Link>
+        {navItems.map((item) => (
+          <button key={item.label} onClick={() => handleNav(item.id)}>
+            {item.label}
+          </button>
+        ))}
       </div>
 
-      <Link to="/location" className="visit-btn" onClick={() => setOpen(false)}>
+      <button className="visit-btn" onClick={() => handleNav("contato")}>
         Contato
-      </Link>
+      </button>
 
-      <div className={`hamburger ${open ? "active" : ""}`} onClick={() => setOpen(!open)}>
+      <button
+        className={`hamburger ${open ? "active" : ""}`}
+        onClick={() => setOpen((prev) => !prev)}
+        aria-label="Menu"
+      >
         <span></span><span></span><span></span>
-      </div>
+      </button>
     </nav>
   );
 }

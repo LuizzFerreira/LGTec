@@ -2,7 +2,7 @@ import "../styles/Visit.css";
 
 export default function Visit() {
   return (
-    <section className="cta-section">
+    <section className="cta-section" id="contato">
       <div className="cta-bg-grid" />
       <div className="cta-glow" />
 
