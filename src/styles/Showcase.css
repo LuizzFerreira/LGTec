@@ -199,4 +199,7 @@
 @media (max-width: 600px) {
   .showcase { padding: 50px 20px; }
   .showcase-grid { grid-template-columns: 1fr; }
+  .card-social .card-img-wrap img {
+    width: 160px;
+  }
 }
