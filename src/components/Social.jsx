@@ -15,13 +15,13 @@ export default function Social() {
       onMouseLeave={() => setActive(false)}
     >
       <div className="social-options">
-        <a href="https://wa.me/5511973262573" className="social-item whatsapp" target="_blank" rel="noreferrer">
+        <a href="https://wa.me/5521995575988" className="social-item whatsapp" target="_blank" rel="noreferrer">
             <img className="WpLogo" src={WpLogo} alt="Clinica Logo" />
         </a>
-        <a href="https://www.instagram.com/drbrunoalexs?utm_source=qr" className="social-item instagram" target="_blank" rel="noreferrer">
+        <a href="https://www.instagram.com/lgtec.oficial" className="social-item instagram" target="_blank" rel="noreferrer">
           <img className="InstaLogo" src={InstaLogo} alt="Clinica Logo" />
         </a>
-        <a href="tel:+5511973262573" className="social-item phone">
+        <a href="tel:+5521995575988" className="social-item phone">
           <img className="TlLogo" src={TlLogo} alt="Clinica Logo" />
         </a>
       </div>

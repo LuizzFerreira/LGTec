@@ -25,8 +25,8 @@ export default function Footer() {
           </div>
           <div className="footer-col">
             <h4>Contato</h4>
-            <a href="https://wa.me/5511973262573" target="_blank" rel="noreferrer">WhatsApp</a>
-            <a href="https://instagram.com" target="_blank" rel="noreferrer">Instagram</a>
+            <a href="https://wa.me/5521995575988" target="_blank" rel="noreferrer">WhatsApp</a>
+            <a href="https://www.instagram.com/lgtec.oficial" target="_blank" rel="noreferrer">Instagram</a>
             <a href="mailto:contato@lgtec.com.br">E-mail</a>
           </div>
         </div>

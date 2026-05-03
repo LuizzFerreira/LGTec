@@ -1,4 +1,6 @@
 import "../styles/Visit.css";
+import ImgWp from "../assets/img/logo-wp.webp";
+import ImgGm from "../assets/img/gmail.png";
 
 export default function Visit() {
   return (
@@ -14,22 +16,17 @@ export default function Visit() {
         </p>
 
         <div className="cta-actions">
-          <a
-            href="https://wa.me/5511973262573"
-            className="cta-btn primary"
-            target="_blank"
-            rel="noreferrer"
-          >
-            💬 Falar no WhatsApp
+          <a href="https://wa.me/5521995575988" className="cta-btn primary" target="_blank" rel="noreferrer" >
+            <img src={ImgWp} alt="WhatsApp Logo" /> Falar no WhatsApp
           </a>
           <a href="mailto:contato@lgtec.com.br" className="cta-btn secondary">
-            ✉️ Enviar e-mail
+            <img src={ImgGm} alt="Email Logo" /> Enviar e-mail
           </a>
         </div>
 
         <div className="cta-info">
-          <span>📍 São Paulo, SP</span>
-          <span>⚡ Resposta em até 2h</span>
+          <span>📍 Rio de Janeiro, RJ</span>
+          <span>⚡ Resposta em até 30min</span>
           <span>🌎 Atendemos todo o Brasil</span>
         </div>
       </div>

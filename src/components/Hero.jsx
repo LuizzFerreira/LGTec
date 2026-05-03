@@ -4,6 +4,7 @@ import "../styles/Hero.css";
 import sideImg1 from "../assets/img/sites.png";
 import sideImg2 from "../assets/img/image-21.jpg";
 import sideImg3 from "../assets/img/image-22.png";
+import Img4 from "../assets/img/image-23.png";
 
 const hero2Content = [
   {
@@ -66,7 +67,7 @@ function ParticleCanvas() {
 
         ctx.beginPath();
         ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
-        ctx.fillStyle = "rgba(124, 58, 237, 0.5)";
+        ctx.fillStyle = "rgba(124, 58, 237, 1.0)";
         ctx.fill();
       });
 
@@ -126,14 +127,17 @@ export default function Hero() {
       <div className="hero-content-container">
         {version === 0 ? (
           <div className="hero-content v1 animate-fade">
-            <span className="tag">LGTec Soluções Técnicas</span>
-            <h1>Impulsione seu Negócio com a <span>LGTec</span></h1>
-            <p>Sites, apps e design estratégico para resultados reais.</p>
-            <div className="buttons">
-              <a href="https://wa.me/5511973262573" target="_blank" rel="noreferrer">
-                <button className="primary">Orçamento Grátis</button>
-              </a>
+            <div>
+              <span className="tag">LGTec Soluções Técnicas</span>
+              <h1>Impulsione seu Negócio com a <span>LGTec</span></h1>
+              <p>Sites, apps e design estratégico para resultados reais.</p>
+              <div className="buttons">
+                <a href="https://wa.me/5521995575988" target="_blank" rel="noreferrer">
+                  <button className="primary">Orçamento Grátis</button>
+                </a>
+              </div>
             </div>
+            <img className="InstaLogo" src={Img4} alt="Clinica Logo" />
           </div>
         ) : (
           <div className="hero2-split">
