@@ -18,8 +18,8 @@ function useCountUp(target, duration = 2000, trigger) {
 }
 
 const stats = [
-  { value: 50, suffix: "+", label: "Projetos entregues" },
-  { value: 98, suffix: "%", label: "Clientes satisfeitos" },
+  { value: 30, suffix: "+", label: "Projetos entregues" },
+  { value: 100, suffix: "%", label: "Clientes satisfeitos" },
   { value: 3, suffix: " anos", label: "De experiência" },
   { value: 24, suffix: "h", label: "Suporte disponível" },
 ];

@@ -15,7 +15,6 @@ export default function Footer() {
             <a href="#">Criação de Sites</a>
             <a href="#">Aplicativos</a>
             <a href="#">Redes Sociais</a>
-            <a href="#">E-commerce</a>
           </div>
           <div className="footer-col">
             <h4>Empresa</h4>

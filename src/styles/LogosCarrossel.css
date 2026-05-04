@@ -1,9 +1,19 @@
 .logos-carrossel {
+  display: flex;
+  flex-direction: column;
+  gap: 50px;
   width: 100%;
   padding: 100px 0;
   overflow: hidden;
 }
-
+.logos-carrossel > h2 {
+  text-align: center;
+  font-size: clamp(28px, 3.5vw, 40px);
+  font-weight: 800;
+  color: var(--text-h);
+  line-height: 1.2;
+  margin-bottom: 16px;
+}
 .logos-track {
   display: flex;
   gap: 100px;

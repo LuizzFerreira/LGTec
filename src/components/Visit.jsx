@@ -19,7 +19,7 @@ export default function Visit() {
           <a href="https://wa.me/5521995575988" className="cta-btn primary" target="_blank" rel="noreferrer" >
             <img src={ImgWp} alt="WhatsApp Logo" /> Falar no WhatsApp
           </a>
-          <a href="mailto:contato@lgtec.com.br" className="cta-btn secondary">
+          <a href="mailto:luizgferreira13@gmail.com" className="cta-btn secondary">
             <img src={ImgGm} alt="Email Logo" /> Enviar e-mail
           </a>
         </div>

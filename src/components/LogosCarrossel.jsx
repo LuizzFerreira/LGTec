@@ -19,6 +19,7 @@ const logos = [
 export default function LogosCarrossel() {
   return (
     <div className="logos-carrossel">
+      <h2>Nossos Clientes</h2>
       <div className="logos-track">
         {[...logos, ...logos].map((l, i) => (
           <a

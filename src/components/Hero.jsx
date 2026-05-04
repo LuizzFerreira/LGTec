@@ -12,21 +12,21 @@ const hero2Content = [
     title: "Sites de Alta <span>Performance</span>",
     text: "Plataformas rápidas e otimizadas para converter visitantes em clientes.",
     image: sideImg1,
-    link: "/servicos",
+    link: "https://wa.me/5521995575988",
   },
   {
     tag: "Mobile Apps",
     title: "Sua Ideia no <span>Bolso</span> do Cliente",
     text: "Criação de aplicativos nativos com foco em experiência do usuário.",
     image: sideImg2,
-    link: "/servicos",
+    link: "https://wa.me/5521995575988",
   },
   {
     tag: "Social Design",
     title: "Design que <span>Vende</span>",
     text: "Sua marca com visual profissional e consistente nas redes sociais.",
     image: sideImg3,
-    link: "/portfolio",
+    link: "https://wa.me/5521995575988",
   },
 ];
 

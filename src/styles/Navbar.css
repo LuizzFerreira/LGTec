@@ -42,7 +42,7 @@
 .links button {
   background: none;
   border: none;
-  color: var(--text);
+  color: black;
   font-size: 15px;
   font-weight: 400;
   cursor: pointer;
