@@ -1,9 +1,9 @@
 import { useRef } from "react";
 import "../styles/Showcase.css";
-import imgSites from "../assets/img/sites.png";
-import imgSocial from "../assets/img/social.png";
-import imgSocial2 from "../assets/img/image-24.png";
-import imgSocial3 from "../assets/img/image-25.png";
+import imgSites from "../assets/img/sites.webp";
+import imgSocial from "../assets/img/social.webp";
+import imgSocial2 from "../assets/img/image-24.webp";
+import imgSocial3 from "../assets/img/image-25.webp";
 
 const servicos = [
   {

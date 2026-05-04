@@ -1,9 +1,9 @@
 import "../styles/LogosCarrossel.css";
-import logo from "../assets/img/image-23.png";
-import logo1 from "../assets/img/snack-logo.png";
-import logo2 from "../assets/img/LogoClinica.png";
-import logo3 from "../assets/img/otica-logo.png";
-import logo4 from "../assets/img/evva_logo_preto.png";
+import logo from "../assets/img/image-23.webp";
+import logo1 from "../assets/img/snack-logo.webp";
+import logo2 from "../assets/img/LogoClinica.webp";
+import logo3 from "../assets/img/otica-logo.webp";
+import logo4 from "../assets/img/evva_logo_preto.webp";
 
 const logos = [
   { id: 1, src: logo1, className: "logo-snack", link: "https://www.instagram.com/snackburguer_apui" },

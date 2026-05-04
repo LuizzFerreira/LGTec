@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import "../styles/Navbar.css";
-import img23 from "../assets/img/image-23.png";
+import img23 from "../assets/img/image-23.webp";
 
 const navItems = [
   { label: "Home", id: null },

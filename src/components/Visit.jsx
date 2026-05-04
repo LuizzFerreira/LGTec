@@ -1,6 +1,6 @@
 import "../styles/Visit.css";
 import ImgWp from "../assets/img/logo-wp.webp";
-import ImgGm from "../assets/img/gmail.png";
+import ImgGm from "../assets/img/gmail.webp";
 
 export default function Visit() {
   return (

@@ -1,10 +1,10 @@
 import { useEffect, useRef, useState } from "react";
 import { Link } from "react-router-dom";
 import "../styles/Hero.css";
-import sideImg1 from "../assets/img/sites.png";
-import sideImg2 from "../assets/img/image-21.jpg";
-import sideImg3 from "../assets/img/image-22.png";
-import Img4 from "../assets/img/image-23.png";
+import sideImg1 from "../assets/img/sites.webp";
+import sideImg2 from "../assets/img/image-21.webp";
+import sideImg3 from "../assets/img/image-22.webp";
+import Img4 from "../assets/img/image-23.webp";
 
 const hero2Content = [
   {
