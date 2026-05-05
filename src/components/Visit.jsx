@@ -16,7 +16,7 @@ export default function Visit() {
         </p>
 
         <div className="cta-actions">
-          <a href="https://wa.me/5521995575988" className="cta-btn primary" target="_blank" rel="noreferrer" >
+          <a href="https://wa.me/21971384157" className="cta-btn primary" target="_blank" rel="noreferrer" >
             <img src={ImgWp} alt="WhatsApp Logo" /> Falar no WhatsApp
           </a>
           <a href="mailto:luizgferreira13@gmail.com" className="cta-btn secondary">

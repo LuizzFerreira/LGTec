@@ -12,21 +12,21 @@ const hero2Content = [
     title: "Sites de Alta <span>Performance</span>",
     text: "Plataformas rápidas e otimizadas para converter visitantes em clientes.",
     image: sideImg1,
-    link: "https://wa.me/5521995575988",
+    link: "https://wa.me/552197138415775988",
   },
   {
     tag: "Mobile Apps",
     title: "Sua Ideia no <span>Bolso</span> do Cliente",
     text: "Criação de aplicativos nativos com foco em experiência do usuário.",
     image: sideImg2,
-    link: "https://wa.me/5521995575988",
+    link: "https://wa.me/552197138415775988",
   },
   {
     tag: "Social Design",
     title: "Design que <span>Vende</span>",
     text: "Sua marca com visual profissional e consistente nas redes sociais.",
     image: sideImg3,
-    link: "https://wa.me/5521995575988",
+    link: "https://wa.me/552197138415775988",
   },
 ];
 
@@ -132,7 +132,7 @@ export default function Hero() {
               <h1>Impulsione seu Negócio com a <span>LGTec</span></h1>
               <p>Sites, apps e design estratégico para resultados reais.</p>
               <div className="buttons">
-                <a href="https://wa.me/5521995575988" target="_blank" rel="noreferrer">
+                <a href="https://wa.me/5521971384157" target="_blank" rel="noreferrer">
                   <button className="primary">Orçamento Grátis</button>
                 </a>
               </div>
