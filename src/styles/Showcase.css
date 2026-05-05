@@ -196,9 +196,6 @@
 }
 
 @media (max-width: 600px) {
-  .showcase { 
-    padding: 10px 20px; 
-  }
   .showcase-grid { 
     grid-template-columns: 1fr; 
   }
