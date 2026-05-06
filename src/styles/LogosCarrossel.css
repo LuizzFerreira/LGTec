@@ -6,6 +6,7 @@
   padding: 100px 0;
   overflow: hidden;
 }
+
 .logos-carrossel > h2 {
   text-align: center;
   font-size: clamp(28px, 3.5vw, 40px);
@@ -14,11 +15,18 @@
   line-height: 1.2;
   margin-bottom: 16px;
 }
+
 .logos-track {
   display: flex;
   gap: 100px;
-  width: max-content;
+  width: fit-content; /* 🔥 ESSENCIAL */
   animation: scroll-logos 20s linear infinite;
+  will-change: transform;
+}
+
+/* 🔥 pausa ao passar o mouse (melhora clique) */
+.logos-track:hover {
+  animation-play-state: paused;
 }
 
 .logos-item {
@@ -32,6 +40,7 @@
   object-fit: contain;
   transition: opacity 0.3s, filter 0.3s;
 }
+
 .logo-evva img {
   width: 100px;
 }
@@ -41,9 +50,14 @@
   filter: grayscale(0%);
 }
 
+/* 🔥 ajuste pra triplicação */
 @keyframes scroll-logos {
-  from { transform: translateX(0); }
-  to { transform: translateX(-50%); }
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-33.333%);
+  }
 }
 
 .logo-snack img {
@@ -68,6 +82,7 @@
   height: 45px;
   transform: rotate(-2deg);
 }
+
 @media (max-width: 768px) {
   .logos-track {
     gap: 50px;
