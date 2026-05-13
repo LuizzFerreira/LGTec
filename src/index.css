@@ -12,9 +12,9 @@
   --text: #64648a;
   --text-h: #0f0f1a;
   --cyan: #0ea5e9;
-  --purple: #7c3aed;
+  --purple: #001799;
   --pink: #ec4899;
-  --gradient: linear-gradient(135deg, #0ea5e9, #7c3aed);
+  --gradient: linear-gradient(135deg, #0ea5e9, #180a5a);
   --glow-cyan: 0 0 30px rgba(14, 165, 233, 0.2);
   --glow-purple: 0 0 30px rgba(124, 58, 237, 0.2);
 

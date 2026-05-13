@@ -6,21 +6,32 @@ import img23 from "../assets/img/image-23.webp";
 const navItems = [
   { label: "Home", id: null },
   { label: "Serviços", id: "servicos" },
-  { label: "Sobre", id: "sobre" },
+  { label: "Sobre", id: "quem-somos" },
   { label: "Portfólio", id: "portfolio" },
 ];
 
 const NAVBAR_HEIGHT = 80;
 
 function smoothScrollTo(id) {
-  if (!id) {
-    window.scrollTo({ top: 0, behavior: "smooth" });
-    return;
-  }
-  const el = document.getElementById(id);
-  if (!el) return;
-  const top = el.getBoundingClientRect().top + window.scrollY - NAVBAR_HEIGHT;
-  window.scrollTo({ top, behavior: "smooth" });
+  const targetY = id
+    ? (document.getElementById(id)?.getBoundingClientRect().top ?? 0) + window.scrollY - NAVBAR_HEIGHT
+    : 0;
+
+  const start = window.scrollY;
+  const distance = targetY - start;
+  const duration = 600;
+  let startTime = null;
+
+  const ease = (t) => t < 0.5 ? 2 * t * t : -1 + (4 - 2 * t) * t;
+
+  const step = (timestamp) => {
+    if (!startTime) startTime = timestamp;
+    const progress = Math.min((timestamp - startTime) / duration, 1);
+    window.scrollTo(0, start + distance * ease(progress));
+    if (progress < 1) requestAnimationFrame(step);
+  };
+
+  requestAnimationFrame(step);
 }
 
 export default function Navbar() {

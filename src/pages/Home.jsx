@@ -12,8 +12,8 @@ export default function Home() {
       <Hero />
       <Showcase />
       <LogosCarrossel />
-      <ShowcaseSecond />
       <Team />
+      <ShowcaseSecond />
       <Depoimentos />
       <Visit />
     </>

@@ -8,6 +8,13 @@
   margin-top: 50px;
 }
 
+.hero-v2 {
+  padding: 0;
+  margin-top: 0;
+  height: auto;
+  display: block;
+}
+
 .slider {
   position: absolute;
   inset: 0;
@@ -38,6 +45,11 @@
   padding: 0 40px;
 }
 
+.hero-v2 .hero-content-container {
+  padding: 0;
+  max-width: 100%;
+}
+
 .hero-content {
   display: flex;
   align-items: center;
@@ -51,6 +63,7 @@
   animation-delay: 0.3s;
   margin: auto;
 }
+
 .hero-content > img {
   margin-left: 40px;
   width: 400px;
@@ -58,8 +71,12 @@
   border-radius: 20px;
   object-fit: cover;
 }
+
 .hero-content > div:nth-child(1) {
   max-width: 800px;
+  min-width: 774px;
+  width: 100%;
+  height: 100%;
 }
 
 @keyframes slideInLeft {
@@ -82,10 +99,6 @@
   display: block;
 }
 
-.hero-v2 .tag {
-  color: #a29bfe;
-}
-
 .hero h1 {
   font-size: clamp(32px, 5vw, 65px);
   font-weight: 800;
@@ -93,21 +106,14 @@
   margin-bottom: 20px;
   text-transform: uppercase;
   color: #fff;
+  min-height: 143px;
 }
-.hero2-split h1 {
-  color: black;
-}
+
 .hero h1 span {
   background: linear-gradient(to right, #00d2ff, #3a7bd5);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   display: inline-block;
-}
-
-.hero-v2 h1 span {
-  background: linear-gradient(to right, #a29bfe, #6c5ce7);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
 }
 
 .hero p {
@@ -207,51 +213,78 @@
   animation: slideInLeft 1s ease-out forwards;
 }
 
-.hero2-split {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 50px;
-}
-
-.text-side {
-  flex: 1;
-  position: relative;
-  height: 300px;
-}
-
-.image-side {
-  flex: 1;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  position: relative;
-  height: 400px;
-}
-
-.image-side img {
-  position: absolute;
-  max-width: 100%;
-  max-height: 100%;
-  object-fit: contain;
-  opacity: 0;
-  transform: scale(0.8) translateX(50px);
-  transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
-  border-radius: 20px;
-}
-
-.image-side img.img-active {
+.tw-cursor {
+  color: #00d2ff;
+  font-weight: 300;
+  margin-left: 2px;
   opacity: 1;
-  transform: scale(1) translateX(0);
+}
+
+.tw-cursor.blink {
+  animation: blink 0.8s step-end infinite;
+}
+
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+
+/* === BANNER CARROSSEL === */
+
+.banner-carrossel {
+  width: 100%;
+  overflow: hidden;
+  cursor: grab;
+  user-select: none;
+  margin-top: 70px;
+  height: calc(100vh - 400px);
+}
+
+.banner-carrossel:active { cursor: grabbing; }
+
+.banner-track {
+  display: flex;
+  height: 100%;
+  transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+  will-change: transform;
+}
+
+.banner-slide {
+  flex-shrink: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.banner-slide a {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.banner-slide img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  pointer-events: none;
 }
 
 @media (max-width: 768px) {
   .hero {
-    padding: 50px 20px;
+    padding: 50px 20px 60px;
     align-items: flex-end;
-    padding-bottom: 60px;
     margin-top: 70px;
     height: fit-content;
+  }
+
+  .hero-v2 {
+    margin-top: 0;
+    padding: 0;
+  }
+
+  .banner-carrossel {
+    margin-top: 70px;
+    height: 390px;
   }
 
   .hero-content-container { padding: 0 20px; }
@@ -261,12 +294,10 @@
     text-align: left;
     max-width: 100%;
   }
-  .hero-content > div:nth-child(1) {
-    order: 2;
-  }
-  .hero-content > img {
-    display: none;
-  }
+
+  .hero-content > div:nth-child(1) { order: 2; }
+  .hero-content > img { display: none; }
+
   .hero h1 { font-size: clamp(28px, 8vw, 42px); }
 
   .hero p {
@@ -276,31 +307,11 @@
   }
 
   .buttons { flex-direction: row; gap: 12px; }
-
   .buttons button { padding: 12px 22px; font-size: 13px; }
-
-  .hero2-split {
-    flex-direction: column;
-    gap: 16px;
-    text-align: left;
-    align-items: flex-start;
+  .hero-content > div:nth-child(1) {
+    min-width: 100%;
   }
-
-  .text-side {
-    height: auto;
-    min-height: 220px;
-    width: 100%;
-    order: 2;
+  .hero h1 {
+    min-height: 109.94px;
   }
-
-  .image-side {
-    display: flex;
-    order: 1;
-    width: 100%;
-    height: 100px;
-    min-height: 200px;
-  }
-
-  .content-box { position: relative; }
-  .content-box:not(.active) { display: none; }
 }

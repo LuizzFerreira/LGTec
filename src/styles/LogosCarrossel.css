@@ -87,4 +87,7 @@
   .logos-track {
     gap: 50px;
   }
+  .logos-carrossel {
+    padding: 0 0 100px;
+  }
 }
