@@ -232,14 +232,14 @@
 /* === BANNER CARROSSEL === */
 
 .banner-carrossel {
-  width: 100%;
-  overflow: hidden;
   cursor: grab;
+  -webkit-user-select: none;
   user-select: none;
+  width: 100%;
+  height: calc(100vh - 350px);
   margin-top: 70px;
-  height: calc(100vh - 400px);
+  overflow: hidden;
 }
-
 .banner-carrossel:active { cursor: grabbing; }
 
 .banner-track {
@@ -268,7 +268,21 @@
   display: block;
   pointer-events: none;
 }
-
+@media (max-width: 1348px) {
+  .banner-carrossel {
+    height: 450px;
+  }
+}
+@media (max-width: 998px) {
+  .banner-carrossel {
+    height: 350px;
+  }
+}
+@media (max-width: 782px) {
+  .banner-carrossel {
+    height: 250px;
+  }
+}
 @media (max-width: 768px) {
   .hero {
     padding: 50px 20px 60px;
@@ -313,5 +327,10 @@
   }
   .hero h1 {
     min-height: 109.94px;
+  }
+}
+@media (max-width: 500px) {
+  .banner-carrossel {
+    height: 420px;
   }
 }

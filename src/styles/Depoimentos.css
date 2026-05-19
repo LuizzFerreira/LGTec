@@ -177,9 +177,12 @@
   background: var(--gradient);
   color: #fff;
   border-color: transparent;
+  border: none;
   box-shadow: 0 4px 20px rgba(124, 58, 237, 0.25);
 }
-
+.dep-arrow:hover img {
+  filter: invert(1);
+}
 .dep-dots {
   display: flex;
   justify-content: center;

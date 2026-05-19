@@ -9,7 +9,7 @@
   content: '';
   position: absolute;
   inset: 0;
-  background-image: radial-gradient(circle, rgba(124, 58, 237, 0.2) 1px, transparent 1px);
+  background-image: radial-gradient(circle, rgba(124, 58, 237, 0.12) 1px, transparent 1px);
   background-size: 32px 32px;
   pointer-events: none;
   mask-image: radial-gradient(ellipse 80% 80% at 50% 50%, black 40%, transparent 100%);
@@ -35,22 +35,11 @@
   z-index: 1;
 }
 
-.section-label {
-  font-size: 11px;
-  font-weight: 700;
-  letter-spacing: 3px;
-  color: var(--purple);
-  text-transform: uppercase;
-  display: block;
-  margin-bottom: 16px;
-}
-
 .showcase-title {
   font-size: clamp(28px, 4vw, 42px);
   font-weight: 800;
   color: var(--text-h);
   line-height: 1.2;
-  margin-bottom: 16px;
 }
 
 .showcase-title span {
@@ -59,147 +48,143 @@
   -webkit-text-fill-color: transparent;
 }
 
-.showcase-sub {
-  color: var(--text);
-  font-size: 16px;
-  line-height: 1.6;
-}
+/* === BENTO GRID === */
 
-.showcase-grid {
+.bento-grid {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 20px;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: 260px 260px;
+  gap: 16px;
   max-width: 1200px;
   margin: 0 auto;
   position: relative;
   z-index: 1;
 }
 
-.service-card {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 20px;
-  background: #fff;
-  border: 1px solid rgba(99, 102, 241, 0.12);
-  border-radius: 20px;
-  padding: 32px 28px;
-  transition: transform 0.15s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+.bento-col-2 { grid-column: span 2; }
+.bento-col-1 { grid-column: span 1; }
+
+/* === CARD BASE === */
+
+.bento-card {
   position: relative;
+  border-radius: 20px;
   overflow: hidden;
-  transform-style: preserve-3d;
+  background: #fff;
+  border: 1px solid rgba(99, 102, 241, 0.1);
   box-shadow: 0 2px 20px rgba(0, 0, 0, 0.04);
-  min-height: 320px;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
+  cursor: pointer;
 }
 
-.service-card:hover {
-  border-color: rgba(124, 58, 237, 0.3);
-  box-shadow: 0 8px 40px rgba(0, 0, 0, 0.08);
-}
-
-.card-glow {
+/* Imagem de fundo */
+.bento-img {
   position: absolute;
   inset: 0;
-  background: radial-gradient(circle at 50% 0%, rgba(124, 58, 237, 0.06) 0%, transparent 60%);
-  opacity: 0;
-  transition: opacity 0.4s ease;
-  pointer-events: none;
+  z-index: 0;
 }
 
-.service-card:hover .card-glow { opacity: 1; }
-
-.card-top {
-  position: relative;
-  z-index: 1;
-}
-
-.card-tag {
-  font-size: 11px;
-  font-weight: 700;
-  letter-spacing: 2px;
-  text-transform: uppercase;
-  color: var(--purple);
-  display: block;
-  margin-bottom: 12px;
-}
-
-.card-title {
-  font-size: 18px;
-  font-weight: 700;
-  color: var(--text-h);
-  line-height: 1.3;
-  margin-bottom: 12px;
-}
-
-.card-desc {
-  font-size: 14px;
-  color: var(--text);
-  line-height: 1.6;
-}
-
-.card-img-wrap {
-  position: relative;
-  z-index: 1;
-}
-
-.card-img-wrap img {
+.bento-img img {
   width: 100%;
+  height: 100%;
+  object-fit: cover;
   display: block;
 }
 
-/* === CSS individual por card === */
+.bento-card:not(:has(.bento-img)) {
+  background: #fafaff;
+  border-color: rgba(124, 58, 237, 0.25);
+}
 
-.card-web .card-img-wrap img {
-  border-radius: 10px;
-  width: 240px;
-  height: auto;
-  margin-top: 20px;
-  object-fit: cover;
-}
-.card-design .card-img-wrap img {
-  border-radius: 5px;
-  width: 240px;
-  height: auto;
-  margin-top: 20px;
-  object-fit: cover;
+/* === ESTADO INICIAL — minimalista === */
 
+.bento-static {
+  display: none;
 }
-.card-ecom .card-img-wrap img {
-  border-radius: 10px;
-  width: 240px;
-  height: 160px;
-  object-fit: cover;
-}
-.card-social .card-img-wrap {
+
+/* === ESTADO HOVER — informação completa === */
+
+.bento-hover {
   position: absolute;
-  bottom: 0;
+  inset: 0;
+  z-index: 3;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 32px;
+}
+.bento-card:hover .bento-img img {
+  transform: scale(1.03);
+  transition: transform 0.3s;
+}
+.bento-hover-tag {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--cyan);
+  margin-bottom: 12px;
+  display: block;
+  font-family: 'Courier New', monospace;
+}
+
+.bento-hover h3 {
+  font-size: clamp(18px, 2vw, 24px);
+  font-weight: 800;
+  color: #fff;
+  line-height: 1.2;
+  margin-bottom: 12px;
+}
+
+.bento-hover p {
+  font-size: 14px;
+  color: rgba(255, 255, 255, 0.75);
+  line-height: 1.6;
+  max-width: 380px;
+}
+
+.bento-cta {
+  display: inline-block;
+  margin-top: 20px;
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--cyan);
+  letter-spacing: 0.5px;
+  transition: gap 0.3s;
+}
+
+/* Cards sem imagem — hover com fundo claro */
+.bento-card:not(:has(.bento-img)) .bento-hover h3 { color: var(--text-h); }
+.bento-card:not(:has(.bento-img)) .bento-hover p { color: var(--text); }
+.bento-card:not(:has(.bento-img)) .bento-hover-tag { color: var(--purple); }
+.bento-card:not(:has(.bento-img)) .bento-cta { color: var(--purple); }
+
+/* Linha decorativa no canto */
+.bento-card::after {
+  content: '';
+  position: absolute;
+  top: 0;
   left: 0;
-  right: 0;
-  padding: 0;
   width: 100%;
-  height: fit-content
+  height: 2px;
+  background: var(--gradient);
+  z-index: 10;
 }
 
-.card-social .card-img-wrap img {
-  border-radius: 0 0 20px 20px;
-  object-fit: cover;
-  width: 230px;
-  height: auto;
-  object-position: top;
-}
-
-@media (max-width: 1024px) {
-  .showcase-grid { grid-template-columns: repeat(2, 1fr); }
+@media (max-width: 900px) {
+  .bento-grid {
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: auto;
+  }
+  .bento-col-2 { grid-column: span 2; }
+  .bento-col-1 { grid-column: span 1; }
 }
 
 @media (max-width: 600px) {
-  .showcase-grid { 
-    grid-template-columns: 1fr; 
+  .showcase { padding: 80px 20px; }
+  .bento-grid {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto;
   }
-  .card-social .card-img-wrap img {
-    width: 150px;
-  }
+  .bento-col-2, .bento-col-1 { grid-column: span 1; }
+  .bento-card { min-height: 200px; }
 }

@@ -1,77 +1,45 @@
-import { useRef } from "react";
 import "../styles/Showcase.css";
-import imgSites from "../assets/img/sites.webp";
-import imgSocial from "../assets/img/social.webp";
-import imgSocial2 from "../assets/img/image-24.webp";
-import imgSocial3 from "../assets/img/image-25.webp";
+import imgSites from "../assets/img/image-47.png";
+import imgSocial3 from "../assets/img/image-48.png";
 
 const servicos = [
   {
     id: "web",
-    tag: "Criação de Sites",
-    title: "Websites que convertem visitantes em clientes",
+    tag: "01",
+    label: "Sites",
+    title: "Criação de Sites",
     desc: "Design moderno, performance máxima e SEO otimizado para o seu negócio crescer online.",
     img: imgSites,
+    span: "col-2",
   },
   {
-    id: "design",
-    tag: "Design & Conteúdo",
-    title: "Design criativo e produção visual",
-    desc: "Criação de artes no Photoshop, edição de vídeos e desenvolvimento de conteúdos visuais que destacam sua marca e aumentam o engajamento nas redes sociais.",
-    img: imgSocial3,
+    id: "Sistemas",
+    tag: "02",
+    label: "Sistemas",
+    title: "Sua loja ou sistema rodando 24h",
+    desc: "Plataformas de venda e sistemas de gestão de estoque personalizados para o seu negócio.",
+    img: null,
+    span: "col-1",
   },
   {
     id: "social",
-    tag: "Redes Sociais",
-    title: "Presença digital que gera resultado",
-    desc: "Gestão estratégica de Instagram, TikTok e LinkedIn com conteúdo que engaja.",
-    img: imgSocial,
+    tag: "03",
+    label: "Social",
+    title: "Redes Sociais",
+    desc: "Gestão estratégica de Instagram, TikTok e LinkedIn com conteúdo que engaja e converte.",
+    img: null,
+    span: "col-1",
   },
   {
-    id: "ecom",
-    tag: "Sistemas & E-commerce",
-    title: "Sua loja ou sistema rodando 24h",
-    desc: "Plataformas de venda e sistemas de gestão personalizados para o seu negócio.",
-    img: imgSocial2,
-  },
+    id: "design",
+    tag: "04",
+    label: "Design",
+    title: "Design & Conteúdo",
+    desc: "Artes, edição de vídeo e identidade visual que destacam sua marca no digital.",
+    img: imgSocial3,
+    span: "col-2",
+  }
 ];
-
-function TiltCard({ item }) {
-  const cardRef = useRef(null);
-
-  const handleMouseMove = (e) => {
-    const card = cardRef.current;
-    const rect = card.getBoundingClientRect();
-    const rotateX = (((e.clientY - rect.top) / rect.height) - 0.5) * -12;
-    const rotateY = (((e.clientX - rect.left) / rect.width) - 0.5) * 12;
-    card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale(1.02)`;
-  };
-
-  const handleMouseLeave = () => {
-    cardRef.current.style.transform = "perspective(1000px) rotateX(0) rotateY(0) scale(1)";
-  };
-
-  return (
-    <div
-      ref={cardRef}
-      className={`service-card card-${item.id}`}
-      onMouseMove={handleMouseMove}
-      onMouseLeave={handleMouseLeave}
-    >
-      <div className="card-glow" />
-      <div className="card-top">
-        <span className="card-tag">{item.tag}</span>
-        <h3 className="card-title">{item.title}</h3>
-        <p className="card-desc">{item.desc}</p>
-      </div>
-      {item.img && (
-        <div className="card-img-wrap">
-          <img src={item.img} alt={item.tag} />
-        </div>
-      )}
-    </div>
-  );
-}
 
 export default function Showcase() {
   return (
@@ -81,14 +49,23 @@ export default function Showcase() {
         <h2 className="showcase-title">
           Soluções digitais que <span>transformam negócios</span>
         </h2>
-        <p className="showcase-sub">
-          Da ideia ao produto final — criamos experiências digitais que geram resultado.
-        </p>
       </div>
 
-      <div className="showcase-grid">
+      <div className="bento-grid">
         {servicos.map((item) => (
-          <TiltCard key={item.id} item={item} />
+          <div key={item.id} className={`bento-card bento-${item.span} card-${item.id}`}>
+            {item.img && (
+              <div className="bento-img">
+                <img src={item.img} alt={item.title} draggable={false} />
+              </div>
+            )}
+            <div className="bento-hover">
+              <span className="bento-hover-tag">{item.tag} — {item.label}</span>
+              <h3>{item.title}</h3>
+              <p>{item.desc}</p>
+              <span className="bento-cta">Saiba mais →</span>
+            </div>
+          </div>
         ))}
       </div>
     </section>
