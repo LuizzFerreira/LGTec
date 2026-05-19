@@ -6,10 +6,10 @@ import logo4 from "../assets/img/evva_logo_preto.webp";
 
 const logos = [
   { id: 1, src: logo1, className: "logo-snack", link: "https://snack-8q3.pages.dev" },
-  { id: 2, src: logo2, className: "logo-clinica", link: "https://drbrunoalex-dev.netlify.app" },
+  { id: 2, src: logo2, className: "logo-clinica", link: "https://drbrunoalex.netlify.app" },
   { id: 3, src: logo3, className: "logo-otica", link: "https://wa.me/5521978867492" },
   { id: 4, src: logo4, className: "logo-evva", link: "https://www.instagram.com/evva_dor" },
-  { id: 5, src: logo2, className: "logo-clinica", link: "https://drbrunoalex-dev.netlify.app" },
+  { id: 5, src: logo2, className: "logo-clinica", link: "https://drbrunoalex.netlify.app" },
 ];
 
 

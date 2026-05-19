@@ -2,22 +2,22 @@ import { useEffect, useRef, useState, useCallback } from "react";
 import "../styles/Hero.css";
 
 import banner1Desktop from "../assets/img/image-41.webp";
-import banner2Desktop from "../assets/img/image-32.png";
-import banner3Desktop from "../assets/img/image-45.png";
+import banner2Desktop from "../assets/img/image-32.webp";
+import banner3Desktop from "../assets/img/image-45.webp";
 
 import banner1Mobile from "../assets/img/image-36.webp";
 import banner2Mobile from "../assets/img/image-39.webp";
 import banner3Mobile from "../assets/img/image-38.webp";
 
 const bannersDesktop = [
-  { src: banner1Desktop, href: "https://exemplo.com/banner1" },
-  { src: banner2Desktop, href: "https://exemplo.com/banner2" },
-  { src: banner3Desktop, href: "https://exemplo.com/banner3" },
+  { src: banner1Desktop, href: "https://www.instagram.com/lgtec.oficial" },
+  { src: banner2Desktop, href: "https://wa.me/5521999329346" },
+  { src: banner3Desktop, href: "https://snackapui.com.br" },
 ];
 const bannersMobile = [
-  { src: banner1Mobile, href: "https://exemplo.com/banner1" },
-  { src: banner2Mobile, href: "https://exemplo.com/banner2" },
-  { src: banner3Mobile, href: "https://exemplo.com/banner3" },
+  { src: banner1Mobile, href: "https://drbrunoalex.netlify.app" },
+  { src: banner2Mobile, href: "https://snackapui.com.br" },
+  { src: banner3Mobile, href: "https://www.instagram.com/lgtec.oficial" },
 ];
 
 function BannerCarrossel() {
