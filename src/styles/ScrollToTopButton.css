@@ -20,3 +20,9 @@
 .scroll-top-btn:hover {
     transform: scale(1.1);
 }
+@media (max-width: 750px) {
+    .scroll-top-btn {
+        bottom: 86px;
+        right: 19px;
+    }
+}

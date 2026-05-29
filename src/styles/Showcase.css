@@ -179,14 +179,53 @@
   }
   .bento-col-2 { grid-column: span 2; }
   .bento-col-1 { grid-column: span 1; }
+  .bento-cta{
+    margin-top: 0;
+  }
 }
 
 @media (max-width: 600px) {
-  .showcase { padding: 80px 20px; }
+  .showcase { padding: 60px 16px; }
   .bento-grid {
     grid-template-columns: 1fr;
     grid-template-rows: auto;
+    gap: 12px;
   }
   .bento-col-2, .bento-col-1 { grid-column: span 1; }
-  .bento-card { min-height: 200px; }
+  .bento-card {
+    min-height: 160px;
+    border-radius: 14px;
+    padding: 0;
+  }
+
+  /* Mobile tweaks for hover panel readability */
+  .bento-hover {
+    padding: 18px;
+    align-items: flex-start;
+    justify-content: center;
+  }
+  .bento-hover-tag {
+    font-size: 9px;
+    letter-spacing: 2px;
+    margin-bottom: 8px;
+  }
+  .bento-hover h3 {
+    font-size: 18px;
+    margin-bottom: 8px;
+    max-width: 100%;
+    word-break: break-word;
+  }
+  .bento-hover p {
+    font-size: 14px;
+    line-height: 1.5;
+    max-width: 100%;
+    color: rgba(255,255,255,0.95);
+  }
+  .bento-cta {
+    font-size: 13px;
+    padding: 8px 10px;
+  }
+  .bento-img img {
+    transition: transform 0.25s ease;
+  }
 }

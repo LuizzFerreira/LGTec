@@ -170,13 +170,26 @@
 
 @media (max-width: 600px) {
   .about-section {
-    padding: 100px 20px;
+    padding: 70px 16px;
+  }
+  .about-content h2 {
+    font-size: clamp(28px, 6vw, 38px);
+  }
+  .about-content p {
+    font-size: 15px;
   }
   .about-card {
     width: 100%;
-    height: 100%;
+    height: auto;
   }
   .about-card h3 {
     font-size: 24px;
+  }
+  .about-mini-label {
+    font-size: 11px;
+  }
+  .value-badge {
+    padding: 6px 12px;
+    font-size: 12px;
   }
 }

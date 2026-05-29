@@ -121,6 +121,33 @@
   box-shadow: 0 8px 40px rgba(124, 58, 237, 0.35);
 }
 @media (max-width: 600px) {
-  .cta-section { padding: 80px 20px; }
-  .cta-info { gap: 16px; flex-direction: column; align-items: center; }
+  .cta-section {
+    padding: 70px 18px;
+  }
+  .cta-glow {
+    width: 500px;
+    height: 300px;
+  }
+  .cta-inner > p {
+    font-size: 15px;
+    margin-bottom: 30px;
+  }
+  .cta-actions {
+    gap: 12px;
+  }
+  .cta-btn {
+    padding: 12px 22px;
+    font-size: 14px;
+  }
+  .cta-btn > img {
+    width: 24px;
+  }
+  .cta-info {
+    gap: 16px;
+    flex-direction: column;
+    align-items: center;
+  }
+  .cta-info span {
+    font-size: 12px;
+  }
 }

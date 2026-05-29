@@ -310,7 +310,12 @@
   }
 
   .hero-content > div:nth-child(1) { order: 2; }
-  .hero-content > img { display: none; }
+  .hero-content > img {
+    width: min(100%, 260px);
+    margin: 24px auto 0;
+    height: auto;
+    display: block;
+  }
 
   .hero h1 { font-size: clamp(28px, 8vw, 42px); }
 
@@ -332,5 +337,16 @@
 @media (max-width: 500px) {
   .banner-carrossel {
     height: 420px;
+  }
+  .hero-content > img {
+    width: min(100%, 220px);
+    margin: 20px auto 0;
+    height: auto;
+    display: block;
+  }
+}
+@media (max-width: 395px) {
+  .banner-carrossel {
+    height: 375px;
   }
 }
