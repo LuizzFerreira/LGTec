@@ -236,8 +236,7 @@
   -webkit-user-select: none;
   user-select: none;
   width: 100%;
-  height: calc(100vh - 350px);
-  margin-top: 70px;
+  height: calc(100vh - 300px);
   overflow: hidden;
 }
 .banner-carrossel:active { cursor: grabbing; }
